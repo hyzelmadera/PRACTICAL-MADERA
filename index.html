@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Prediction</title>
+    <style>
+        form {
+        background-color: lightgrey;
+        padding: 2em;
+        width: 15em;
+        border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Diabetes Prediction Magic</h1></center>
+    <center>
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="age" placeholder="Age" required="required" /><br>
+        <p>Hypertension:</p>
+        <input type="radio" id="h-yes" name="hypertension" placeholder="Hypertension" value="1.0" required="required" />
+        <label for="h-yes"> Yes </label>
+        <input type="radio" id="h-no" name="hypertension" placeholder="Hypertension" value="0.0" required="required" />
+        <label for="h-no"> No </label><br>
+        <p>Heart Disease:</p>
+        <input type="radio" id="hd-yes" name="heart_disease" placeholder="Heart Disease" value="1.0" required="required" />
+        <label for="hd-yes">Yes</label>
+        <input type="radio" id="hd-no" name="heart_disease" placeholder="Heart Disease" value="0.0" required="required" />
+        <label for="hd-no">No</label><br><br>
+        <input type="text" name="bmi" placeholder="BMI" required="required" /><br><br>
+        <input type="text" name="HbA1c_level" placeholder="HbA1c Level" required="required" /><br><br>
+        <input type="text" name="blood_glocuse_level" placeholder="Blood Glocuse Level" required="required" /><br><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button><br><br>
+        <h4 style="color:Red;"> {{ prediction_output }} </h4>
+    </form>
+    </center>
+</body>
